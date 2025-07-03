@@ -7,7 +7,19 @@ if [ ! -d "Packages" ]; then
     sh scripts/install-packages.sh
 fi
 
-rojo sourcemap default.project.json -o sourcemap.json
+# Clean and create dist directory
+rm -rf dist/
+mkdir -p dist
 
-ROBLOX_DEV=false darklua process --config .darklua.json src/ dist/
+# Copy source files excluding test files using rsync
+rsync -av --exclude="__tests__" --exclude="*.spec.lua" --exclude="jest.config.lua" src/ dist/
+
+# Copy .luaurc if it exists
+if [ -f "src/.luaurc" ]; then
+    cp src/.luaurc dist/
+fi
+
+rojo sourcemap build.project.json -o sourcemap.json
+
+ROBLOX_DEV=false darklua process --config .darklua.json dist/ dist/
 rojo build build.project.json -o RobloxProjectTemplate.rbxl

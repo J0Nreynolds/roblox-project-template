@@ -1,4 +1,4 @@
-local __DEV__ = _G.__DEV__ == "true"
+local __DEV__ = true
 
 local Log = {}
 

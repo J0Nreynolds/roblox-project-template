@@ -1,5 +1,7 @@
 sourcemap.json
 Packages/
+DevPackages/
+.rokit/
 **/*.rbx[lm]*
 .DS_Store
 roblox.yml
@@ -7,4 +9,6 @@ roblox.toml
 globalTypes.d.lua
 
 **/sourcemap.json
+test-sourcemap.json
 dist/
+test-dist/

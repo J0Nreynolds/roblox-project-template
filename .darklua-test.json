@@ -12,19 +12,19 @@
                 "sources": {
                     "@Packages": "Packages/",
                     "@DevPackages": "DevPackages/",
-                    "@Project": "dist/",
-                    "@Client": "dist/Client/",
-                    "@Controllers": "dist/Client/Controllers/",
-                    "@Components": "dist/Client/UI/Components/",
-                    "@Hooks": "dist/Client/UI/Hooks/",
-                    "@Common": "dist/Common/",
-                    "@Server": "dist/Server/",
-                    "@Services": "dist/Server/Services/"
+                    "@Project": "test-dist/",
+                    "@Client": "test-dist/Client/",
+                    "@Controllers": "test-dist/Client/Controllers/",
+                    "@Components": "test-dist/Client/UI/Components/",
+                    "@Hooks": "test-dist/Client/UI/Hooks/",
+                    "@Common": "test-dist/Common/",
+                    "@Server": "test-dist/Server/",
+                    "@Services": "test-dist/Server/Services/"
                 }
             },
             "target": {
                 "name": "roblox",
-                "rojo_sourcemap": "sourcemap.json",
+                "rojo_sourcemap": "test-sourcemap.json",
                 "indexing_style": "wait_for_child"
             }
         },

@@ -7,7 +7,7 @@
 --
 -- Also note that __DEV__ **MUST** be set before React itself is required, so
 --  we set it here before any client code is run.
-_G.__DEV__ = _G.__DEV__ == "true"
+_G.__DEV__ = true
 
 local function Start()
 	require("@Controllers/UIController")

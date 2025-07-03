@@ -1,5 +1,5 @@
 {
-    "name": "RobloxProjectTemplate",
+    "name": "RobloxProjectTemplate_Test",
     "emitLegacyScripts": false,
     "tree": {
         "$className": "DataModel",
@@ -10,19 +10,13 @@
                     "$path": "DevPackages"
                 },
                 "Project": {
-                    "$path": "dist"
+                    "$path": "test-dist"
                 }
-            },
-            "Client": {
-                "$path": "dist/Client"
-            },
-            "Common": {
-                "$path": "dist/Common"
             }
         },
         "ServerScriptService": {
-            "Server": {
-                "$path": "dist/Server"
+            "TestRunner": {
+                "$path": "run-tests.lua"
             }
         }
     }
