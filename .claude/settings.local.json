@@ -44,7 +44,10 @@
       "Bash(ROBLOX_DEV=true darklua process --config .darklua-dev.json src/ dist/)",
       "Bash(sh:*)",
       "Bash(ROBLOX_DEV=true darklua process --config .darklua.json dist/)",
-      "Bash(cd:*)"
+      "Bash(cd:*)",
+      "Bash(od:*)",
+      "Bash(dos2unix:*)",
+      "Bash(sed:*)"
     ],
     "deny": []
   }
