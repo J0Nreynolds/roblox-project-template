@@ -1,10 +1,18 @@
-sourcemap.json
+# Generated
 Packages/
+DevPackages/
+.rokit/
 **/*.rbx[lm]*
 .DS_Store
 roblox.yml
 roblox.toml
 globalTypes.d.lua
+sourcemap.json
+sourcemap.test.json
 
-**/sourcemap.json
+# Claude
+.claude/
+
+# Dist directories
 dist/
+dist_test_runner/
