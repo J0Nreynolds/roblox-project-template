@@ -14,15 +14,25 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install Rokit
         uses: CompeyDev/setup-rokit@v0.1.2
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Install Rokit packages
+        run: rokit install --no-trust-check
 
       - name: Install Wally packages
-        run: sh scripts/install-packages.sh
+        run: wally install
+        
+      - name: Install Wally packages
+        run: wally install
+      
+      - name: Create sourcemap
+        run: rojo sourcemap default.project.json -o sourcemap.json
+
+      - name: Generate types
+        run: wally-package-types --sourcemap sourcemap.json Packages/
 
       - name: Analyze
         run: sh scripts/analyze.sh
@@ -42,7 +52,6 @@ jobs:
       - name: Lint
         run: |
           selene src/
-
   style:
     name: Styling
     runs-on: ubuntu-latest
@@ -54,5 +63,5 @@ jobs:
         uses: JohnnyMorganz/stylua-action@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          version: v0.20.0
+          version: v2.1.0
           args: --check src/
