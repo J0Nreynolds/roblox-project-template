@@ -1,6 +1,10 @@
 {
     "name": "RobloxProjectTemplate",
     "emitLegacyScripts": false,
+    "globIgnorePaths": [
+        "dist/__tests__/*",
+        "dist_test_runner/run_tests.luau"
+    ],
     "tree": {
         "$className": "DataModel",
         "ReplicatedStorage": {

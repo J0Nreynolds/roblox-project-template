@@ -1,5 +1,5 @@
 {
-    "name": "RobloxProjectTemplate",
+    "name": "RobloxProjectTemplate_Test",
     "emitLegacyScripts": false,
     "tree": {
         "$className": "DataModel",
@@ -10,22 +10,16 @@
             "DevPackages": {
                 "$path": "DevPackages"
             },
-            "Client": {
-                "$path": "src/Client"
-            },
-            "Common": {
-                "$path": "src/Common"
-            },
-            "Tests": {
-                "$path": "src/__tests__"
+            "Project": {
+                "$path": "dist",
+                "inspect": {
+                    "$path": "debug/inspect.luau"
+                }
             }
         },
         "ServerScriptService": {
-            "Server": {
-                "$path": "src/Server"
-            },
             "TestRunner": {
-                "$path": "run-tests.luau"
+                "$path": "dist_test_runner/run-tests.luau"
             }
         }
     }

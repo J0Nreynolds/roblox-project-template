@@ -6,7 +6,7 @@ DevPackages/
 .DS_Store
 roblox.yml
 roblox.toml
-globalTypes.d.lua
+globalTypes.d.luau
 sourcemap.json
 sourcemap.test.json
 
