@@ -46,16 +46,37 @@
 
 2. **Clone this repository**
 
-3. **Install tools and dependencies**:
+3. **Setup Git aliases**:
    ```bash
-   ./scripts/install-packages.sh
+   ./scripts/aliases.sh
+   ```
+   This creates local Git aliases for all project commands and ensures scripts run in the current terminal.
+
+4. **Install tools and dependencies**:
+   ```bash
+   git install
    ```
    This will install both development tools (via Rokit) and packages (via Wally).
 
-4. **Start development server**:
+5. **Start development server**:
    ```bash
-   ./scripts/dev.sh
+   git dev
    ```
+
+### Running Scripts Manually
+
+If you prefer to run scripts directly without Git aliases:
+
+```bash
+# Use these direct commands instead
+./scripts/install-packages.sh
+./scripts/dev.sh
+./scripts/build.sh
+./scripts/test.sh
+./scripts/test-dev.sh
+```
+
+> **Windows Users**: Running scripts manually will open Git Bash in a separate window. For the best experience and to see script output in your current terminal, use the Git aliases instead.
    
 ## Project Structure
 
@@ -166,7 +187,7 @@ The template provides two approaches for running tests:
 For active test development with live sync:
 
 ```bash
-./scripts/test-dev.sh
+git test-dev
 ```
 
 - Starts a Rojo server for test development
@@ -180,13 +201,15 @@ For active test development with live sync:
 For one-time test execution:
 
 ```bash
-./scripts/test.sh
+git test
 ```
 
 - Builds a complete test project place file
-- Attempts to run tests via `run-in-roblox` (if available)
+- Attempts to run tests via `run-in-roblox` (Windows/macOS only)
 - Creates `RobloxProjectTemplate_Test.rbxl` for manual testing
 - Tests run when executed manually in Studio Command Bar
+
+> **Note**: `run-in-roblox` is only supported on Windows and macOS. Linux users should use the Roblox Studio method for running tests.
 
 ### Test Architecture Notes
 
@@ -243,20 +266,6 @@ end)
 ```
 
 For available Jest matchers and advanced testing patterns, see the [Jest-Lua documentation](https://jsdotlua.github.io/jest-lua/).
-
-### Studio Setup
-
-To run tests in Roblox Studio, enable the LoadModule flag:
-
-1. Create `ClientAppSettings.json` in your Roblox settings folder:
-   ```json
-   {
-       "FFlagEnableLoadModule": true
-   }
-   ```
-
-2. Restart Roblox Studio
-
 ## Contributing
 
 1. Fork the repository
