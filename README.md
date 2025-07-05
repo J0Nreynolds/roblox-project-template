@@ -13,7 +13,7 @@
 **A comprehensive starting point for Roblox projects. Implements Rojo, Darklua, Wally, and more.**
 
 <!--- FIXME: Update crate, repo and CI workflow names here! Remove any that are not relevant --->
-[![Build status](https://github.com/grilme99/roblox-project-template/workflows/CI/badge.svg)](https://github.com/grilme99/roblox-project-template/actions)
+[![Build status](https://github.com/J0Nreynolds/roblox-project-template/workflows/CI/badge.svg)](https://github.com/J0Nreynolds/roblox-project-template/actions)
 
 </div>
 
@@ -83,7 +83,6 @@ src/
 - `./scripts/test-dev.sh` - Start test development server with file watching
 - `./scripts/build.sh` - Build the project for production
 - `./scripts/test.sh` - Build test project and run Jest tests
-- `./scripts/validate-tests.sh` - Validate test setup
 - `./scripts/install-packages.sh` - Install tools and packages
 - `./scripts/analyze.sh` - Run code analysis
 

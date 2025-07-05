@@ -15,14 +15,14 @@ rojo sourcemap default.test.project.json -o sourcemap.test.json
 
 # Process files from src/ to dist/
 ROBLOX_DEV=true darklua process --config .darklua.test.json src/ dist/
-ROBLOX_DEV=true darklua process run-tests.luau dist_test_runner/run-tests.luau
+ROBLOX_DEV=true darklua process run-tests.luau test_runner/run-tests.luau
 
 # Build test project
 rojo build build.test.project.json --output RobloxProjectTemplate_Test.rbxl
 
 # Try to run tests with run-in-roblox, but handle errors gracefully
 echo "Attempting to run Jest tests..."
-if run-in-roblox --place RobloxProjectTemplate_Test.rbxl --script dist_test_runner/run-tests.luau 2>/dev/null; then
+if run-in-roblox --place RobloxProjectTemplate_Test.rbxl --script test_runner/run-tests.luau 2>/dev/null; then
     echo "Tests completed successfully!"
 else
     echo ""

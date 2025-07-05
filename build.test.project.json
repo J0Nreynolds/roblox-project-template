@@ -8,18 +8,18 @@
                 "$path": "Packages"
             },
             "DevPackages": {
-                "$path": "DevPackages"
+                "$path": "DevPackages",
+                "inspect": {
+                    "$path": "lib/inspect.luau"
+                }
             },
             "Project": {
-                "$path": "dist",
-                "inspect": {
-                    "$path": "debug/inspect.luau"
-                }
+                "$path": "dist"
             }
         },
         "ServerScriptService": {
             "TestRunner": {
-                "$path": "dist_test_runner/run-tests.luau"
+                "$path": "test_runner/run-tests.luau"
             }
         }
     }

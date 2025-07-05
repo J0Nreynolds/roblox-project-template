@@ -10,9 +10,6 @@ globalTypes.d.luau
 sourcemap.json
 sourcemap.test.json
 
-# Claude
-.claude/
-
 # Dist directories
 dist/
-dist_test_runner/
+test_runner/
