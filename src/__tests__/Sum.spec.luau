@@ -4,12 +4,10 @@ local describe = JestGlobals.describe
 local it = JestGlobals.it
 local expect = JestGlobals.expect
 
-local inspect = require("@Lib/inspect")
 local sum = require("@Project/Common/Sum")
 
 describe("Sum", function()
 	it("adds 1 + 2 to equal 3", function()
-		expect(inspect(sum(1, 2))).toBe("3")
 		expect(sum(1, 2)).toBe(3)
 	end)
 

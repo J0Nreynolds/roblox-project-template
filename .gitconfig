@@ -1,8 +1,0 @@
-[alias]
-    sh = !bash
-    analyze = !sh ./scripts/analyze.sh
-    build = !sh ./scripts/build.sh
-    dev = !sh ./scripts/dev.sh
-    install = !sh ./scripts/install-packages.sh
-    test = !sh ./scripts/test.sh
-    test-dev = !sh ./scripts/test-dev.sh

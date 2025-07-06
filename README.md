@@ -28,6 +28,7 @@
 
 - [Rokit](https://github.com/rojo-rbx/rokit) - Install via [instructions here](http://github.com/rojo-rbx/rokit?tab=readme-ov-file#installation) or [releases](https://github.com/rojo-rbx/rokit/releases)
 - [Roblox Studio](https://create.roblox.com/) - For testing and publishing
+- **[Windows Users]** [Git Bash](https://git-scm.com/downloads) - For running scripts (comes with Git for Windows)
 
 ### Setup
 
@@ -54,6 +55,7 @@ git dev        # Start development server with file watching
 git install    # Install tools and packages  
 git test       # Build and run tests
 git test-dev   # Start test development server
+git test-wsl   # Run tests via PowerShell (specifically for WSL users to use `run-in-roblox`)
 ```
 
 > **Windows Users**: Use Git aliases for best experience. Manual script execution opens separate windows if using Git Bash, making it difficult to read the script output.
@@ -122,7 +124,7 @@ For Jest matchers and patterns, see [Jest-Lua documentation](https://jsdotlua.gi
 
 ## Notes
 
-- **run-in-roblox**: Windows/macOS only (Linux users should use `git test-dev` method)
+- **run-in-roblox**: Windows/macOS only (WSL users should use `git test-wsl`)
 - **File watching**: WSL users must use PowerShell or CMD, or host project on Linux filesystem
 - **Git aliases**: Recommended for Windows to avoid terminal window issues
 
