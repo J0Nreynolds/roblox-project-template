@@ -1,5 +1,5 @@
 {
-    "name": "RobloxProjectTemplate_Test",
+    "name": "Roblox Project Test Build",
     "emitLegacyScripts": false,
     "tree": {
         "$className": "DataModel",
@@ -20,6 +20,9 @@
         "ServerScriptService": {
             "TestRunner": {
                 "$path": "test_runner/run-tests.luau"
+            },
+            "$properties": {
+                "LoadStringEnabled": true
             }
         }
     }

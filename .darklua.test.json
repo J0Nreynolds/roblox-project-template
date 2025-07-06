@@ -3,7 +3,22 @@
         {
             "rule": "inject_global_value",
             "identifier": "__DEV__",
-            "env": "ROBLOX_DEV"
+            "value": true
+        },
+        {
+            "rule": "inject_global_value",
+            "identifier": "__STUDIO__",
+            "env": "TEST_IN_STUDIO"
+        },
+        {
+            "rule": "inject_global_value",
+            "identifier": "__VERBOSE__",
+            "env": "JEST_VERBOSE"
+        },
+        {
+            "rule": "inject_global_value",
+            "identifier": "__CI__",
+            "env": "JEST_CI"
         },
         {
             "rule": "convert_require",

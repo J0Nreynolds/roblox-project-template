@@ -24,9 +24,6 @@ jobs:
 
       - name: Install Wally packages
         run: wally install
-        
-      - name: Install Wally packages
-        run: wally install
       
       - name: Create sourcemap
         run: rojo sourcemap default.project.json -o sourcemap.json
@@ -65,3 +62,31 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           version: v2.1.0
           args: --check src/
+
+  test-cloud:
+    name: Test (Roblox Open Cloud)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Install Rokit
+        uses: CompeyDev/setup-rokit@v0.1.2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Install Rokit packages
+        run: rokit install --no-trust-check
+
+      - name: Install Wally packages
+        run: wally install
+      
+      - name: Create sourcemap
+        run: rojo sourcemap default.project.json -o sourcemap.json
+
+      - name: Run cloud tests
+        run: sh scripts/test-cloud.sh
+        env:
+          ROBLOX_API_KEY: ${{ secrets.ROBLOX_API_KEY }}
+          ROBLOX_TEST_UNIVERSE_ID: ${{ secrets.ROBLOX_TEST_UNIVERSE_ID }}
+          ROBLOX_TEST_PLACE_ID: ${{ secrets.ROBLOX_TEST_PLACE_ID }}

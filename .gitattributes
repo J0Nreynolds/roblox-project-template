@@ -9,6 +9,7 @@
 *.toml text
 *.yml text
 *.yaml text
+*.env text
 
 # Binary files
 *.rbxl binary

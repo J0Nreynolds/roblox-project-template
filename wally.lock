@@ -3,7 +3,7 @@
 registry = "test"
 
 [[package]]
-name = "brooke/roblox-project-template"
+name = "j0nreynolds/roblox-project-template"
 version = "0.1.0"
 dependencies = [["React", "jsdotlua/react@17.2.1"], ["ReactRoblox", "jsdotlua/react-roblox@17.2.1"], ["Jest", "jsdotlua/jest@3.10.0"], ["JestGlobals", "jsdotlua/jest-globals@3.10.0"]]
 

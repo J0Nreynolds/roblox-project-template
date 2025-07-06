@@ -13,3 +13,11 @@ sourcemap.test.json
 # Dist directories
 dist/
 test_runner/
+
+# Project configuration
+*.env
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class

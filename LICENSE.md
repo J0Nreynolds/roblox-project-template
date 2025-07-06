@@ -1,3 +1,4 @@
+Copyright (c) 2025 Jonathan Reynolds
 Copyright (c) 2023 Brooke Rhodes
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

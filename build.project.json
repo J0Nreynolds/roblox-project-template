@@ -1,5 +1,5 @@
 {
-    "name": "RobloxProjectTemplate",
+    "name": "Roblox Project Build",
     "emitLegacyScripts": false,
     "globIgnorePaths": [
         "dist/__tests__/**",

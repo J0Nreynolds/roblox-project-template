@@ -8,7 +8,7 @@
 
 # `📦 Roblox Project Template`
 
-**A comprehensive starting point for Roblox projects. Implements Rojo, Darklua, Wally, and more.**
+**A comprehensive Roblox project template with modern tooling, flexible testing, and CI/CD support. Features Rojo, Darklua, Jest-Lua, and Roblox Open Cloud integration.**
 
 [![Build status](https://github.com/J0Nreynolds/roblox-project-template/workflows/CI/badge.svg)](https://github.com/J0Nreynolds/roblox-project-template/actions)
 
@@ -18,9 +18,11 @@
 
 - **Modern Development Stack**: Rojo, Darklua, Wally, and Rokit for comprehensive tooling
 - **React Integration**: Built-in React and ReactRoblox for modern UI development
-- **Testing Framework**: Jest-Lua + `run-in-roblox` for testing
+- **Flexible Testing**: Jest-Lua with multiple execution modes (local, cloud, and live development)
+- **Cloud Testing**: Roblox Open Cloud API integration for CI/CD-friendly testing without local dependencies
 - **Code Quality**: Stylua formatting, Selene linting, and type checking
 - **Git Workflow**: Pre-configured aliases and scripts for streamlined development
+- **Cross-Platform**: Windows, macOS, and Linux support with WSL considerations
 
 ## Quick Start
 
@@ -40,7 +42,14 @@
    git install           # Installs tools and packages
    ```
 
-2. **Start developing**:
+2. **Configure project** (optional):
+   ```bash
+   # Copy environment template and fill in your values
+   cp project.env.template project.env
+   nano project.env   # Set PROJECT_NAME and other options
+   ```
+
+3. **Start developing**:
    ```bash
    git dev               # Start development server
    ```
@@ -55,12 +64,49 @@ git dev        # Start development server with file watching
 git install    # Install tools and packages  
 git test       # Build and run tests
 git test-dev   # Start test development server
-git test-wsl   # Run tests via PowerShell (specifically for WSL users to use `run-in-roblox`)
+git test-wsl   # Run tests via PowerShell (WSL users - enables run-in-roblox)
+git test-cloud # Run tests via Roblox Open Cloud (requires API setup)
 ```
+> **See [CLOUD_TESTING.md](CLOUD_TESTING.md) for cloud testing setup instructions**
 
 > **Windows Users**: Use Git aliases for best experience. Manual script execution opens separate windows if using Git Bash, making it difficult to read the script output.
 >
 > **WSL Users**: File watching (`git dev` or `git test-dev`) requires either PowerShell/CMD or hosting the project on Linux filesystem (not `/mnt/c/`).
+
+## Project Configuration
+
+The template uses a `project.env` file for project settings. Copy the template to get started:
+
+```bash
+cp project.env.template project.env
+```
+
+Configuration options include:
+
+```bash
+# Project Environment Configuration
+PROJECT_NAME=""                    # Used for generated place files
+JEST_VERBOSE=false                 # Test output verbosity
+JEST_CI=true                       # CI mode for tests
+ROBLOX_TEST_PLACE_ID=""           # Optional: Cloud testing place ID
+ROBLOX_TEST_UNIVERSE_ID=""        # Optional: Cloud testing universe ID
+ROBLOX_API_KEY=""                 # Optional: API key for cloud testing
+```
+
+**Important**: 
+- All `*.env` files are gitignored - the template file is tracked
+- Never commit API keys to version control
+- For CI/CD, you can use GitHub repository variables/secrets instead of the env file
+
+**Test Configuration**: The `JEST_VERBOSE` and `JEST_CI` variables are injected as globals during the darklua build process and control test runner behavior.
+
+This affects:
+- **Production builds**: `YourProjectName.rbxl`
+- **Test builds**: `YourProjectName_Test.rbxl`
+- **Cloud testing**: Uses the specified place/universe IDs and API key (see [CLOUD_TESTING.md](CLOUD_TESTING.md) for setup)
+- **Test behavior**: Controls verbosity and CI mode through injected globals
+
+**Tip**: You may also want to update the Rojo project names in `build.project.json` and `build.test.project.json` to match your project name.
 
 ## Project Structure
 
@@ -93,6 +139,7 @@ The development uses `darklua` with file watching to transform code with proper 
 ```bash
 git test        # Build and run all tests
 git test-dev    # Live test development with file watching (preferred if you have issues with `run-in-roblox`)
+git test-cloud  # Run tests via Roblox Open Cloud (see CLOUD_TESTING.md for setup)
 ```
 
 ### Manual Studio Testing
@@ -118,6 +165,16 @@ end)
 ```
 
 **Note**: Tests use `@Project` alias to access all code since the test environment places everything under `ReplicatedStorage.Project`.
+
+### Test Configuration
+
+The test runner uses global injection to configure behavior at build time. Environment variables from `project.env` are injected as globals during the darklua processing:
+
+- `JEST_VERBOSE` → `__VERBOSE__` global: Controls test output verbosity
+- `JEST_CI` → `__CI__` global: Enables CI mode for cleaner output
+- `TEST_IN_STUDIO` → `__STUDIO__` global: Detects Studio environment for color handling
+
+This happens in `.darklua.test.json` using the `inject_global_value` rule, allowing compile-time configuration without runtime overhead.
 
 For Jest matchers and patterns, see [Jest-Lua documentation](https://jsdotlua.github.io/jest-lua/).
 
