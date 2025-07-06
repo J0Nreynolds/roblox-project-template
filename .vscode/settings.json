@@ -1,4 +1,7 @@
 {
+    "[lua]": {
+        "editor.defaultFormatter": "JohnnyMorganz.stylua"
+    },
     "editor.formatOnSave": true,
     "luau-lsp.completion.imports.enabled": true,
     "luau-lsp.completion.imports.suggestServices": true,

@@ -4,6 +4,7 @@ local describe = JestGlobals.describe
 local it = JestGlobals.it
 local expect = JestGlobals.expect
 
+local _inspect = require("@lib/inspect")
 local sum = require("@Project/Common/Sum")
 
 describe("Sum", function()
