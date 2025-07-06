@@ -8,10 +8,10 @@
                 "$path": "Packages"
             },
             "DevPackages": {
-                "$path": "DevPackages",
-                "inspect": {
-                    "$path": "lib/inspect.luau"
-                }
+                "$path": "DevPackages"
+            },
+            "lib": {
+                "$path": "lib"
             },
             "Project": {
                 "$path": "src"

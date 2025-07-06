@@ -12,7 +12,7 @@
                 "sources": {
                     "@Packages": "Packages/",
                     "@DevPackages": "DevPackages/",
-                    "@lib": "lib/",
+                    "@Lib": "lib/",
                     "@Project": "src/",
                     "@Client": "src/Client/",
                     "@Controllers": "src/Client/Controllers/",

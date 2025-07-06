@@ -2,8 +2,9 @@
     "name": "RobloxProjectTemplate",
     "emitLegacyScripts": false,
     "globIgnorePaths": [
-        "dist/__tests__/*",
-        "test_runner/run_tests.luau"
+        "dist/__tests__/**",
+        "test_runner/run_tests.luau",
+        "lib/**"
     ],
     "tree": {
         "$className": "DataModel",
