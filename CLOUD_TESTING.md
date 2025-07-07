@@ -56,8 +56,8 @@ export ROBLOX_TEST_PLACE_ID="your_test_place_id"
 ```
 
 For CI/CD (GitHub Actions):
-- **Secrets**: `ROBLOX_API_KEY`, `ROBLOX_TEST_UNIVERSE_ID`, `ROBLOX_TEST_PLACE_ID`
-> **Note:** Your `ROBLOX_TEST_UNIVERSE_ID` and `ROBLOX_TEST_PLACE_ID` can be set as **variables** rather than secrets if desired (e.g. replace `secrets.ROBLOX_TEST_UNIVERSE_ID` with `vars.ROBLOX_TEST_UNIVERSE_ID` in the `ci.yml` file)
+- **[Set Repository Secrets](../../settings/secrets/actions)**: `ROBLOX_API_KEY`, `ROBLOX_TEST_UNIVERSE_ID`, `ROBLOX_TEST_PLACE_ID`
+> **Note:** Your `ROBLOX_TEST_UNIVERSE_ID` and `ROBLOX_TEST_PLACE_ID` can be set as **[repository variables](../../settings/variables/actions)** rather than [repository secrets](../../settings/secrets/actions) if desired (e.g. replace `secrets.ROBLOX_TEST_UNIVERSE_ID` with `vars.ROBLOX_TEST_UNIVERSE_ID` in the `ci.yml` file)
 
 #### Option 2: Environment File (Recommended for Local Development)
 
