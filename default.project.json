@@ -7,28 +7,29 @@
             "Packages": {
                 "$path": "Packages"
             },
-            "DevPackages": {
-                "$path": "DevPackages"
-            },
-            "lib": {
-                "$path": "lib"
-            },
-            "Client": {
-                "$path": "src/Client"
-            },
             "Common": {
                 "$path": "src/Common"
             },
-            "Tests": {
-                "$path": "src/__tests__"
+            "Assets": {
+                "$path": "assets"
             }
+        },
+        "StarterPlayer": {
+            "StarterPlayerScripts": {
+                "Client": {
+                    "$path": "src/Client"
+                }
+            }
+        },
+        "Workspace": {
+            "$path": "map/Workspace.rbxm"
+        },
+        "Lighting": {
+            "$path": "map/Lighting.rbxm"
         },
         "ServerScriptService": {
             "Server": {
                 "$path": "src/Server"
-            },
-            "TestRunner": {
-                "$path": "run-tests.luau"
             }
         }
     }

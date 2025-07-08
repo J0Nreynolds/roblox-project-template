@@ -4,8 +4,22 @@
     },
     "luau-lsp.sourcemap.autogenerate": false,
     "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": "explicit"
+    },
     "luau-lsp.completion.imports.enabled": true,
     "luau-lsp.completion.imports.suggestServices": true,
     "luau-lsp.completion.imports.suggestRequires": false,
-    "luau-lsp.require.mode": "relativeToFile"
+    "luau-lsp.require.mode": "relativeToFile",
+    "files.associations": {
+        "*.luau": "lua"
+    },
+    "files.exclude": {
+        "globalTypes.d.luau": true
+    },
+    "search.exclude": {
+        "Packages/": true,
+        "DevPackages/": true,
+        "dist/": true
+    }
 }

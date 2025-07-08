@@ -12,12 +12,25 @@
             "Packages": {
                 "$path": "Packages"
             },
-            "Client": {
-                "$path": "dist/Client"
-            },
             "Common": {
                 "$path": "dist/Common"
+            },
+            "Assets": {
+                "$path": "assets"
             }
+        },
+        "StarterPlayer": {
+            "StarterPlayerScripts": {
+                "Client": {
+                    "$path": "dist/Client"
+                }
+            }
+        },
+        "Workspace": {
+            "$path": "map/Workspace.rbxm"
+        },
+        "Lighting": {
+            "$path": "map/Lighting.rbxm"
         },
         "ServerScriptService": {
             "Server": {

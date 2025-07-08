@@ -1,15 +1,16 @@
 {
-    "aliases": {
-        "Packages": "Packages/",
-        "DevPackages": "DevPackages/",
-        "Lib": "lib/",
-        "Project": "src/",
-        "Client": "src/Client/",
-        "Controllers": "src/Client/Controllers/",
-        "Components": "src/Client/UI/Components/",
-        "Hooks": "src/Client/UI/Hooks/",
-        "Common": "src/Common/",
-        "Server": "src/Server/",
-        "Services": "src/Server/Services/"
-    }
+  "aliases": {
+    "Packages": "Packages/",
+    "DevPackages": "DevPackages/",
+    "Lib": "lib/",
+    "Project": "src/",
+    "Client": "src/Client/",
+    "Controllers": "src/Client/Controllers/",
+    "Components": "src/Client/UI/Components/",
+    "Hooks": "src/Client/UI/Hooks/",
+    "Common": "src/Common/",
+    "Server": "src/Server/",
+    "Services": "src/Server/Services/",
+    "lune": "~/.lune/.typedefs/0.9.4/"
+  }
 }
