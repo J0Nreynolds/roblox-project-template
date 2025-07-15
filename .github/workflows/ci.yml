@@ -32,7 +32,7 @@ jobs:
         run: wally-package-types --sourcemap sourcemap.json Packages/
 
       - name: Analyze
-        run: sh scripts/analyze.sh
+        run: lune run analyze
 
   lint:
     name: Lint
@@ -85,7 +85,7 @@ jobs:
         run: rojo sourcemap default.project.json -o sourcemap.json
 
       - name: Run cloud tests
-        run: sh scripts/test-cloud.sh
+        run: lune run test-cloud
         env:
           ROBLOX_API_KEY: ${{ secrets.ROBLOX_API_KEY }}
           ROBLOX_TEST_UNIVERSE_ID: ${{ secrets.ROBLOX_TEST_UNIVERSE_ID }}

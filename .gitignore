@@ -16,6 +16,7 @@ test_runner/
 
 # Project configuration
 *.env
+project.config.toml
 
 # Python cache
 __pycache__/

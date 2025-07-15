@@ -1,0 +1,23 @@
+# Project Configuration Template
+# Copy this file to project.config.toml and fill in your values
+# IMPORTANT: project.config.toml is gitignored - do NOT commit API keys
+
+# Basic project configuration
+[project]
+name = "RobloxProjectTemplate"
+
+# Test configuration - these values are injected as globals during darklua processing
+[test]
+verbose = true  # JEST_VERBOSE -> __VERBOSE__
+ci = false      # JEST_CI -> __CI__
+
+# Cloud Testing Configuration
+# You can set these here as an alternative to environment variables
+[cloud]
+test_place_id = ""     # ROBLOX_TEST_PLACE_ID
+test_universe_id = ""  # ROBLOX_TEST_UNIVERSE_ID
+
+# API Key for Roblox Open Cloud
+# WARNING: Never commit this to version control
+# Consider using environment variables instead for security
+# api_key = ""  # ROBLOX_API_KEY

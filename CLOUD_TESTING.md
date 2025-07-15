@@ -17,7 +17,7 @@ This approach works on **any platform** (Windows, macOS, Linux) and is perfect f
 
 Create the place file dedicated to testing using this command: 
 ```bash
-git build-test
+lune run build-test
 ```
 > **Note:** This step is only necessary if you haven't already created a test place. If you have, skip to the next section.
 
@@ -59,32 +59,35 @@ For CI/CD (GitHub Actions):
 - **[Set Repository Secrets](../../settings/secrets/actions)**: `ROBLOX_API_KEY`, `ROBLOX_TEST_UNIVERSE_ID`, `ROBLOX_TEST_PLACE_ID`
 > **Note:** Your `ROBLOX_TEST_UNIVERSE_ID` and `ROBLOX_TEST_PLACE_ID` can be set as **[repository variables](../../settings/variables/actions)** rather than [repository secrets](../../settings/secrets/actions) if desired (e.g. replace `secrets.ROBLOX_TEST_UNIVERSE_ID` with `vars.ROBLOX_TEST_UNIVERSE_ID` in the `ci.yml` file)
 
-#### Option 2: Environment File (Recommended for Local Development)
+#### Option 2: Configuration File (Recommended for Local Development)
 
 1. Copy the template file:
    ```bash
-   cp project.env.template project.env
+   cp project.config.template.toml project.config.toml
    ```
 
-2. Edit `project.env` and fill in your values:
-   ```bash
-   PROJECT_NAME="YourProjectName"
-   ROBLOX_TEST_PLACE_ID="your_test_place_id"
-   ROBLOX_TEST_UNIVERSE_ID="your_test_universe_id"
-   ROBLOX_API_KEY="your_api_key_here"
+2. Edit `project.config.toml` and fill in your values:
+   ```toml
+   [project]
+   name = "YourProjectName"
+   
+   [cloud]
+   test_place_id = "your_test_place_id"
+   test_universe_id = "your_test_universe_id"
+   api_key = "your_api_key_here"
    ```
 
 > **⚠️ SECURITY WARNING**: 
-> - All `*.env` files are gitignored and will NOT be committed to version control
+> - `project.config.toml` is gitignored and will NOT be committed to version control
 > - **Never commit API keys** to your repository
-> - For CI/CD, you can use GitHub repository variables/secrets instead of the env file
-> - Make sure you copy to `project.env` (not `project.env.template`) to ensure it's gitignored
+> - For CI/CD, you can use GitHub repository variables/secrets instead of the config file
+> - Make sure you copy to `project.config.toml` (not `project.config.template.toml`) to ensure it's gitignored
 
 ## Usage
 
 ### Local Testing
 ```bash
-git test-cloud    # Run tests via Open Cloud
+lune run test-cloud    # Run tests via Open Cloud
 ```
 
 ### CI Integration
@@ -109,11 +112,14 @@ test-cloud:
 ## File Structure
 
 ```
-scripts/
-├── test-cloud.sh              # Main cloud testing script
-└── python/
-    ├── upload_and_run_task.py  # Handles place upload and task execution
-    └── luau_execution_task.py  # Open Cloud API wrapper
+lune/
+├── test-cloud.luau            # Main cloud testing script
+└── lib/
+    └── config.luau             # Configuration loader
+
+python/
+├── upload_and_run_task.py     # Handles place upload and task execution
+└── luau_execution_task.py     # Open Cloud API wrapper
 
 tasks/
 └── cloud-test-runner.luau     # Cloud execution task script
